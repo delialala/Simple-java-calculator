@@ -1,17 +1,17 @@
 import javax.swing.*;
+
 public class CalculatorButton extends JButton {
 
     int number;
+    CalculatorButton(){
+        super();
+        this.setRequestFocusEnabled(false);
+    }
     CalculatorButton(String symbol){
         super(symbol);
         this.setRequestFocusEnabled(false);
-        //if the symbol isnt a number, we put 0 in the number field
-        try{
-            number = Integer.parseInt(symbol);
-        }
-        catch(Exception e){
-            number = 0;
-        }
+        number = Integer.parseInt(symbol);
+        this.addActionListener(e -> changeText());
     }
 
     //calculates the row where the number should be
@@ -36,7 +36,9 @@ public class CalculatorButton extends JButton {
 
         return 0;
     }
-    /*public int getNumber() {
-        return number;
-    }*/
+    public void changeText(){
+        if(0 <= number && number <= 9){
+            Main.resultTextField.updateResult(number);
+        }
+    }
 }
