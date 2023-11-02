@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 public class Main {
 
+    public static CalculatorText resultTextField;
+    public static OperationalButton pressedButton = new OperationalButton();
     //function for the GUI
     private static void createAndShowGUI() {
         JFrame frame = new JFrame("Demoooo!");
@@ -49,22 +51,22 @@ public class Main {
         }
 
         //let's add the other numbers too
-        CalculatorButton CEbutton = new CalculatorButton("CE");
+        CEButton CEbutton = new CEButton();
         constraints.gridx = 3;
         constraints.gridy = 2;
         numbersPanel.add(CEbutton, constraints);
 
-        CalculatorButton minusButton = new CalculatorButton("-");
+        MinusButton minusButton = new MinusButton();
         constraints.gridx = 3;
         constraints.gridy = 3;
         numbersPanel.add(minusButton, constraints);
 
-        CalculatorButton plusButton = new CalculatorButton("+");
+        PlusButton plusButton = new PlusButton();
         constraints.gridx = 3;
         constraints.gridy = 4;
         numbersPanel.add(plusButton, constraints);
 
-        CalculatorButton equalButton = new CalculatorButton("=");
+        EqualButton equalButton = new EqualButton();
         constraints.gridx = 3;
         constraints.gridy = 5;
         equalButton.requestFocusInWindow();
@@ -75,26 +77,27 @@ public class Main {
         constraints.gridy = 5;
         numbersPanel.add(zeroButton, constraints);
 
-        CalculatorButton multiplyButton = new CalculatorButton("X");
+        MultiplyButton multiplyButton = new MultiplyButton();
         constraints.gridx = 1;
         constraints.gridy = 5;
         numbersPanel.add(multiplyButton, constraints);
 
-        CalculatorButton divisionButton = new CalculatorButton("/");
+        DivButton divisionButton = new DivButton();
         constraints.gridx = 2;
         constraints.gridy = 5;
         numbersPanel.add(divisionButton, constraints);
 
         //make the text result
-        JTextField result = new JTextField();
-        result.setHorizontalAlignment(SwingConstants.RIGHT);
+        //JTextField result = new JTextField();
+        resultTextField = new CalculatorText();
+        resultTextField.setHorizontalAlignment(SwingConstants.RIGHT);
         constraints.gridwidth = 4;
         constraints.gridx = 0;
         constraints.gridy = 1;
-        numbersPanel.add(result, constraints);
+        numbersPanel.add(resultTextField, constraints);
 
         //and the settings button
-        CalculatorButton settingsButton = new CalculatorButton("()");
+        SettingsButton settingsButton = new SettingsButton();
         constraints.ipady = 10;
         constraints.ipadx = 10;
         constraints.gridx = 3;
@@ -102,10 +105,10 @@ public class Main {
         numbersPanel.add(settingsButton, constraints);
 
         //work on the result
-        result.setEditable(false);
+        resultTextField.setEditable(false);
         frame.getContentPane().add(numbersPanel, BorderLayout.SOUTH);
 
-        zeroButton.addActionListener(e -> result.setText("zero"));
+
         //add grid
         //set the size of the frame and other cool stuff
         frame.setSize(300, 350);
