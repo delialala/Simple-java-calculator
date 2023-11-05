@@ -7,6 +7,7 @@ public class OperationalButton extends JButton {
     }
     public OperationalButton() {
         this.addActionListener(e -> changeText());
+        this.setRequestFocusEnabled(false);
     }
     public void changeText() {
         Main.pressedButton = this;

@@ -1,7 +1,10 @@
+
+import com.formdev.flatlaf.FlatLightLaf;
+
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
-
+//import sun.*;
 public class Main {
 
     public static CalculatorText resultTextField;
@@ -11,10 +14,10 @@ public class Main {
         JFrame frame = new JFrame("Demoooo!");
 
         //we make the frame look native
-        try{
-            UIManager.setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");
-        } catch(Exception e) {
-            System.out.println("yo mama");
+        try {
+            UIManager.setLookAndFeel( new FlatLightLaf() );
+        } catch( Exception ex ) {
+            System.err.println( "Failed to initialize LaF" );
         }
 
         //make list for buttons
