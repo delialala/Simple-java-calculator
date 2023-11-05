@@ -8,9 +8,9 @@ public class EqualButton extends CalculatorButton{
 
     @Override
     public void changeText() {
-                int rez = Main.pressedButton.getResult();
+        int rez = Main.pressedButton.getResult();
 
-                Main.resultTextField.setText(Main.pressedButton.getResult() + "");
-                CalculatorText.result = rez;
+        Main.resultTextField.setText(Main.pressedButton.getResult() + "");
+        CalculatorText.result = rez;
     }
 }

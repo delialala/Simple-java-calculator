@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Simple calculator:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Simple_calculator_jar</output-path>
+    <root id="archive" name="Simple calculator.jar">
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/resources/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="module-output" name="Simple calculator" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/lib/flatlaf-3.2.5.jar" path-in-jar="/" />
+      <element id="file-copy" path="$PROJECT_DIR$/lib/flatlaf-3.2.5.jar" />
+    </root>
+  </artifact>
+</component>
