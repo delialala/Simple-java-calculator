@@ -1,20 +1,23 @@
+
+import com.formdev.flatlaf.FlatLightLaf;
+
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
-
 public class Main {
 
     public static CalculatorText resultTextField;
     public static OperationalButton pressedButton = new OperationalButton();
+    public static JFrame frame;
     //function for the GUI
     private static void createAndShowGUI() {
-        JFrame frame = new JFrame("Demoooo!");
+        frame = new JFrame("Calculator");
 
         //we make the frame look native
-        try{
-            UIManager.setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");
-        } catch(Exception e) {
-            System.out.println("yo mama");
+        try {
+            UIManager.setLookAndFeel( new FlatLightLaf() );
+        } catch( Exception ex ) {
+            System.err.println( "Failed to initialize LaF" );
         }
 
         //make list for buttons
@@ -38,6 +41,8 @@ public class Main {
         numbersPanel.setLayout(numbersGrid);
         //making the constraints for the buttons
         //one column wide
+        constraints.weightx = 1;
+        constraints.weighty = 1;
         constraints.gridwidth = 1;
         constraints.gridheight = 1;
         constraints.ipadx = 30;
@@ -88,7 +93,6 @@ public class Main {
         numbersPanel.add(divisionButton, constraints);
 
         //make the text result
-        //JTextField result = new JTextField();
         resultTextField = new CalculatorText();
         resultTextField.setHorizontalAlignment(SwingConstants.RIGHT);
         constraints.gridwidth = 4;
@@ -106,12 +110,10 @@ public class Main {
 
         //work on the result
         resultTextField.setEditable(false);
-        frame.getContentPane().add(numbersPanel, BorderLayout.SOUTH);
+        frame.getContentPane().add(numbersPanel, BorderLayout.NORTH);
 
-
-        //add grid
         //set the size of the frame and other cool stuff
-        frame.setSize(300, 350);
+        frame.setSize(300, 330);
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
